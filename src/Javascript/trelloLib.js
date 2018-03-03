@@ -53,7 +53,8 @@ var trelloLibrary = (function () {
 
                     var taskObj = {
                         text: event.target.value,
-                        id: trelloObj.taskObj[task][trelloObj.taskObj[task].length - 1].id + 1
+                        id: trelloObj.taskObj[task][trelloObj.taskObj[task].length - 1].id ?
+                            trelloObj.taskObj[task][trelloObj.taskObj[task].length - 1].id + 1 : 1
                     };
                     trelloObj.taskObj[task].push(taskObj);
                     trelloObj.renderElemFunc(task, taskObj);
@@ -102,7 +103,8 @@ var trelloLibrary = (function () {
 
                     var taskObj = {
                         text: document.querySelector('#'+data + ' .textarea').innerHTML,
-                        id: trelloObj.taskObj[containerDiv][trelloObj.taskObj[containerDiv].length - 1].id + 1
+                        id: trelloObj.taskObj[containerDiv][trelloObj.taskObj[containerDiv].length - 1].id ?
+                            trelloObj.taskObj[containerDiv][trelloObj.taskObj[containerDiv].length - 1].id + 1 : 1
                     };
 
                     trelloObj.taskObj[containerDiv].push(taskObj);
