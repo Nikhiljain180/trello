@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Trello App</title>
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" type="text/css" href="./style/common.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/trello.css">
+
+    <link rel="stylesheet" type="text/css" href="./style/main.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+    your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="container" id="container">
+
+    <div class="app-wrapper">
+        <div class="app-header">
+            <div class="header">
+                <div class="logo">
+                    <img src="https://a.trellocdn.com/dist/images/header-logo-2x.01ef898811a879595cea.png">
+                </div>
+            </div>
+        </div>
+        <div class="app-content">
+            <div class="add-board">
+                <input type="text" placeholder="Add a board..." id="add-board">
+            </div>
+            <div class="board-list">
+                <span></span>
+                <div  class= "inlineBlock trelloBlock">
+
+                    <div class="todotask board" data-id="1">
+                        <div class="board-wrapper">
+                            <div class="board-header">
+                                <div data-task="todoTask" class="board-title">Todo Task</div>
+                            </div>
+                            <div class="board-content">
+                                <div class="todoTasks"></div>
+                                <div class="clear10">
+                                </div>
+                            </div>
+                            <div class="board-footer">
+                                <input type="text" data-task="todoTask" placeholder="Add a card ..." class="add-board">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inprogresstask board" data-id="2">
+                        <div class="board-wrapper">
+                            <div class="board-header">
+                                <div data-task="inprogressTask" class="board-title">In progress Task</div>
+                            </div>
+                            <div class="board-content">
+                                <div class="inprogressTasks"></div>
+                                <div class="clear10"></div>
+                            </div>
+                            <div class="board-footer">
+                                <input type="text" data-task="inprogressTask" placeholder="Add a card ..." class="add-board">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="completetask board" data-id="3">
+                        <div class="board-wrapper">
+                            <div class="board-header">
+                                <div data-task="completedTask" class="board-title">Completed Task</div>
+                            </div>
+                            <div class="board-content">
+                                <div class="completedTasks"></div>
+                                <div class="clear10"></div>
+                            </div>
+                            <div class="board-footer">
+                                <input type="text" data-task="completedTask" placeholder="Add a card ..." class="add-board">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="Javascript/helperFunction.js"></script>
+<script src="Javascript/trelloLib.js"></script>
+<script src="./Javascript/index.js"></script>
+
+</body>
+</html>

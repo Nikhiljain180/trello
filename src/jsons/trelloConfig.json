@@ -1,0 +1,23 @@
+{
+  "todoTask" :[{
+   "id" : 1,
+   "text" : "As a new user I want to create new account and delete my blog posts."
+  },{
+      "id" : 2,
+      "text" : "As user I want to create my personal account."
+      }],
+  "inprogressTask" : [{
+      "id" : 1,
+      "text" : "As a new user I want to create new account and delete my blog posts."
+  },{
+      "id" : 2,
+      "text" : "As user I want to create my personal account."
+  }],
+  "completedTask" : [{
+      "id" : 1,
+      "text" : "As a new user I want to create new account and delete my blog posts."
+  },{
+      "id" : 2,
+      "text" : "As user I want to create my personal account."
+  }]
+}
