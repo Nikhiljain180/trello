@@ -94,8 +94,6 @@ var trelloLibrary = (function () {
                     rearrangingDiv = document.querySelector('.' + containerDiv + 's');
 
                 if (rearrangingDiv) {
-                    rearrangingDiv.appendChild(document.getElementById(data));
-
                     var dataAr = data.split('_');
                     trelloObj.taskObj[dataAr[0]] = trelloObj.taskObj[dataAr[0]].filter(function (item) {
                         return item.id != dataAr[1]
@@ -109,12 +107,23 @@ var trelloLibrary = (function () {
 
                     trelloObj.taskObj[containerDiv].push(taskObj);
                     localStorage.setItem('taskObj', JSON.stringify(trelloObj.taskObj));
+
+                    that.removeallTaskData();
+
+                    that.renderInitialTaskData();
                 }
             });
 
             trelloObj.container.addEventListener('dragover', function (event) {
                 event.preventDefault();
             });
+        },
+        removeallTaskData : function () {
+            for(var taskContainer in trelloObj.domElems){
+                if (trelloObj.domElems.hasOwnProperty(taskContainer)) {
+                    trelloObj.domElems[taskContainer].innerHTML = '';
+                }
+            }
         },
         ajaxHandler: function (reqparm, success) {
             var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
