@@ -17,8 +17,8 @@ var trelloLibrary = (function () {
             this.domElems[task].insertAdjacentHTML('beforeend',
                 '<div class="card " draggable="true" id="' + task + '_' + taskElem.id + '" data-task=' + task + ' data-taskId=' + taskElem.id +
                 ' draggable="true"> ' +
-                '<div class="text-container"' + 'data-task=' + task + '>' +
-                '<div class="textarea"' + 'data-task=' + task + '>' + taskElem.text +
+                '<div class="text-container"' + 'data-task=' + task + ' data-taskId=' + taskElem.id + '>' +
+                '<div class="textarea"' + 'data-task=' + task +  ' data-taskId=' + taskElem.id + '>' + taskElem.text +
                 '</div> ' +
                 '</div> ' +
                 '<span class="close"' + ' data-task=' + task + ' data-taskId=' + taskElem.id + '>x' + '</span> ' +
@@ -93,30 +93,63 @@ var trelloLibrary = (function () {
                     containerDiv = event.target.getAttribute("data-task"),
                     rearrangingDiv = document.querySelector('.' + containerDiv + 's');
 
-                if (rearrangingDiv) {
-                    var dataAr = data.split('_');
-                    trelloObj.taskObj[dataAr[0]] = trelloObj.taskObj[dataAr[0]].filter(function (item) {
-                        return item.id != dataAr[1]
-                    });
+                if(data.indexOf(containerDiv) === 0){
+                    var dragDiv = data.split('_')[1],
+                        dropDiv = event.target.getAttribute("data-taskid");
 
-                    var taskObj = {
-                        text: document.querySelector('#'+data + ' .textarea').innerHTML,
-                        id: trelloObj.taskObj[containerDiv][trelloObj.taskObj[containerDiv].length - 1] ?
-                            trelloObj.taskObj[containerDiv][trelloObj.taskObj[containerDiv].length - 1].id + 1 : 1
-                    };
+                    that.reArrangeComponentByID(trelloObj.taskObj,containerDiv,dragDiv,dropDiv);
 
-                    trelloObj.taskObj[containerDiv].push(taskObj);
-                    localStorage.setItem('taskObj', JSON.stringify(trelloObj.taskObj));
+                    trelloObj.domElems[containerDiv].innerHTML = '';
+                    trelloObj.taskObj[containerDiv].forEach(function (taskElem, index) {
+                        trelloObj.renderElemFunc(containerDiv, taskElem);
+                    })
+                }else {
+                    if (rearrangingDiv) {
+                        var dataAr = data.split('_');
+                        trelloObj.taskObj[dataAr[0]] = trelloObj.taskObj[dataAr[0]].filter(function (item) {
+                            return item.id != dataAr[1]
+                        });
 
-                    that.removeallTaskData();
+                        var taskObj = {
+                            text: document.querySelector('#' + data + ' .textarea').innerHTML,
+                            id: trelloObj.taskObj[containerDiv][trelloObj.taskObj[containerDiv].length - 1] ?
+                                trelloObj.taskObj[containerDiv][trelloObj.taskObj[containerDiv].length - 1].id + 1 : 1
+                        };
 
-                    that.renderInitialTaskData();
+                        trelloObj.taskObj[containerDiv].push(taskObj);
+
+                        that.removeallTaskData();
+                        that.renderInitialTaskData();
+                    }
                 }
+
+                localStorage.setItem('taskObj', JSON.stringify(trelloObj.taskObj));
+
             });
 
             trelloObj.container.addEventListener('dragover', function (event) {
                 event.preventDefault();
             });
+        },
+        reArrangeComponentByID : function (taskObj,elem,id1,id2) {
+            var index1=0,index2=0,
+                trelloObj = taskObj;
+
+            trelloObj[elem].forEach(function (taskObj,index) {
+                if(taskObj.id == id1){
+                    index1 = index
+                }
+                if(taskObj.id == id2){
+                    index2 = index
+                }
+            });
+            var tempVar = trelloObj[elem][index1];
+            trelloObj[elem][index1] = trelloObj[elem][index2];
+            trelloObj[elem][index2] = tempVar;
+
+            tempVar = trelloObj[elem][index1].id;
+            trelloObj[elem][index1].id = trelloObj[elem][index2].id;
+            trelloObj[elem][index2].id = tempVar;
         },
         removeallTaskData : function () {
             for(var taskContainer in trelloObj.domElems){

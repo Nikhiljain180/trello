@@ -21,8 +21,8 @@
       <file leaf-file-name="trelloLib.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Javascript/trelloLib.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="90" column="54" lean-forward="false" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="54" />
+            <state relative-caret-position="-1931">
+              <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -57,6 +57,11 @@
       <find>seatSelectLogic</find>
       <find>renderElemFunc</find>
       <find>renderInitialTaskData</find>
+      <find>taskObj</find>
+      <find>reArrangeComponentByID</find>
+      <find>containerDiv</find>
+      <find>trelloObj</find>
+      <find>.id</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -235,12 +240,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1520083070356</updated>
-      <workItem from="1520083071683" duration="5942000" />
+      <workItem from="1520083071683" duration="9765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5942000" />
+    <option name="totallyTimeSpent" value="9765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="709" extended-state="0" />
@@ -346,8 +351,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Javascript/trelloLib.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="90" column="54" lean-forward="false" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="54" />
+        <state relative-caret-position="-1931">
+          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
           <folding />
         </state>
       </provider>
