@@ -1,18 +1,20 @@
-.app-header .header{
-    background:#0166a3;
-    height:50px;
-    width:100%;
-    margin:0;
+.app-header .header {
+    background: #0166a3;
+    height: 50px;
+    width: 100%;
+    margin: 0;
 }
-.app-header .header img{
+
+.app-header .header img {
     width: 75px;
     margin: auto;
     display: block;
     padding-top: 12px;
-    cursor:pointer;
-    position:relative;
+    cursor: pointer;
+    position: relative;
 }
-.app-header input{
+
+.app-header input {
     position: absolute;
     right: 0;
     height: 25px;
@@ -21,37 +23,45 @@
     margin-top: 10px;
     margin-right: 15px;
     font-size: 15px;
-    outline:0;
+    outline: 0;
 }
-body{
+
+body {
     background: #efefef;
 }
 
-i:hover{
+i:hover {
     cursor: pointer;
 }
 
-.container button{
+.container button {
     margin-top: 3%;
 }
 
-#lists{
+#lists {
     margin-top: 5%;
 }
 
-#lists .list{
+#lists .list {
     background: #fff;
     padding: 2.5%;
     border: #efefef 10px solid;
 }
 
-.cards:hover{
+.cards:hover {
     cursor: crosshair;
 }
 
-#lists .list .cards{
+#lists .list .cards {
     background: #efefef;
     padding: 2.5%;
     margin-top: 3%;
     margin-bottom: 3%;
+}
+
+.logo {
+    padding-left: 43%;
+    color: white;
+    padding-top: 10px;
+    font-size: 20px;
 }
